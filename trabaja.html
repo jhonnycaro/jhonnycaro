@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="estilo.css">
+<body>
+    
+    <nav>
+    <a href="file:///C:/Users/aymap/Documents/visual%20studios/jhonny%20tabla/parcial.html">Regresar</a>
+</nav>
+    <h1>Formulario de Solicitud de Trabajo</h1>
+   
+    <form onsubmit="mostrarMensaje(event)">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required>
+        
+        <label for="cv">Adjuntar CV:</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+        
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p id="mensaje" style="display: none; font-weight: bold; color: rgb(255, 123, 0);">Listo, Espere su respuesta.</p>
+
+    <script>
+        function mostrarMensaje(event) {
+            event.preventDefault(); // Evita el envío real del formulario
+            document.getElementById('mensaje').style.display = 'block';
+        }
+    </script>
+</body>

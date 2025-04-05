@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a Tus Productos</title>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-image: url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            text-align: center;
+        }
+        .header {
+            background-color: #333;
+            color: rgb(255, 255, 255);
+            padding: 20px;
+            font-size: 24px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background: rgb(49, 49, 49);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .productos {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .producto {
+            width: 30%;
+            padding: 15px;
+            background: #505050;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .producto img {
+            width: 100px;
+            height: auto;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Bienvenidos a Tus Productos</div>
+    <nav>
+        <a href="producto.html">Productos</a>
+    </nav>
+    <div class="container">
+        <h2>Nuestros Productos</h2>
+        <div class="productos">
+            <div class="producto">
+                <td><img src="s24.jpg" alt="" class="logo">
+                    <a href="telefono.html" target="_blank"style="text-decoration: none; color: inherit;"></a></td>
+                 
+                <h3><a href="telefono.html">s24</a></h3>
+                <p>Pantalla OLED, 256GB, Cámara 50MP</p>
+                <p><strong>$500</strong></p>
+            </div>
+            <div class="producto">
+                <td><img src="images.jpg" alt="" class="logo">
+                    <a href="laptop.html" target="_blank"style="text-decoration: none; color: inherit;"></a></td>
+                 
+                <h3><a href="laptop.html">Laptop Ultra Rápida</a></h3>
+                <p>Procesador i9, 32GB RAM, 1TB SSD</p>
+                <p><strong>$1200</strong></p>
+            </div>
+            <div class="producto">
+                <td><img src="download.jpg" alt="" class="logo">
+                    <a href="auriculares.html" target="_blank"style="text-decoration: none; color: inherit;"></a></td>
+                 
+                <h3><a href="auriculares.html">Auriculares Premium</a></h3>
+                <p>Cancelación de ruido, Bluetooth 5.0</p>
+                <p><strong>$200</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

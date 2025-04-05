@@ -1,0 +1,237 @@
+
+    body {
+        background-image: url("Group\ 8\ \(1\).png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+nav {
+    background-color: #92603e;
+    padding: 10px;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+nav ul li {
+    margin-right: 20px;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    }
+nav {
+    background-color: #bd8763;
+     padding: 10px;
+       }
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+       }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    }
+.container {
+           max-width: 900px;
+           margin: 50px auto;
+           padding: 30px;
+           background: white;
+           border-radius: 10px;
+           box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+h1 {
+    text-align: center;
+    color: #dd8449;
+    font-size: 2em;
+    }
+    h2 {
+        color: #d35400;
+        margin-top: 20px;
+    }
+    p {
+        text-align: justify;
+        line-height: 1.8;
+        font-size: 1.1em;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('');
+        background-size: cover;
+        background-position: center;
+    }
+    
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #dadada;
+                text-align: center;
+            }
+            .header {
+                background-color: #dd834f;
+                color: rgb(255, 255, 255);
+                padding: 20px;
+                font-size: 24px;
+            }
+            .container {
+                width: 80%;
+                margin: auto;
+                padding: 20px;
+                background: rgb(241, 241, 241);
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgb(255, 255, 255);
+            }
+            .productos {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                margin-top: 20px;
+            }
+            .producto {
+                width: 30%;
+                padding: 15px;
+                background: #fffefe;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .producto img {
+                width: 100px;
+                height: auto;
+            }
+            nav a {
+                margin: 0 15px;
+                text-decoration: none;
+                color: rgb(255, 255, 255);
+                font-weight: bold;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                     margin: 0;
+                     padding: 0;
+              }
+                 nav {
+                     background-color: #bd8763;
+                     padding: 10px;
+                 }
+                 nav a {
+                  color: white;
+                  text-decoration: none;
+                  padding: 10px;
+                  margin: 0 10px;
+                  font-weight: bold;
+                 }
+                 body {
+                    font-family: Arial, sans-serif;
+                         margin: 0;
+                         padding: 0;
+                  }
+                     nav {
+                         background-color: #bd8763;
+                         padding: 10px;
+                     }
+                     nav a {
+                      color: white;
+                      text-decoration: none;
+                      padding: 10px;
+                      margin: 0 10px;
+                      font-weight: bold;
+                     }
+                     body {
+                        font-family: Arial, sans-serif;
+                             margin: 0;
+                             padding: 0;
+                      }
+                         nav {
+                             background-color: #bd8763;
+                             padding: 10px;
+                         }
+                         nav a {
+                          color: white;
+                          text-decoration: none;
+                          padding: 10px;
+                          margin: 0 10px;
+                          font-weight: bold;
+                         }
+                          body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f8f8f8;
+                text-align: center;
+            }
+            .banner {
+                width: 100%;
+                
+                background: url("baneer.webp"); 
+                ;
+            }
+            .content {
+                padding: 20px;
+            }
+            h1 {
+                color: #c77b48;
+                font-size: 2.5em;
+                margin-top: 20px;
+            }
+            h2 {
+                color: #444;
+                font-size: 1.8em;
+            }
+            p {
+                font-size: 1.2em;
+                color: #666;
+                max-width: 800px;
+                margin: 10px auto;
+                line-height: 1.6;
+            }
+            
+ body 
+              
+            nav {
+                
+                background-color: #bd8763;
+                 padding: 10px;
+                   }
+            nav a {
+                color: white;
+                text-decoration: none;
+                padding: 10px;
+                margin: 0 10px;
+                font-weight: bold;
+                   }
+                   body {
+                    background-color: #ffd7b6;
+                    
+                }
+                body 
+              
+                nav {
+                             
+                    background-color: #bd8763;
+                               padding: 10px;
+                 }
+                nav a {
+                     color: white;
+                    text-decoration: none;
+                    padding: 10px;
+                    margin: 0 10px;
+                   font-weight: bold;
+              }
