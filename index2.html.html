@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talonario de Rifa</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #FFC107;
+            --accent-color: #2196F3;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .talonario-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .talonario {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .numero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .numero:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .numero.seleccionado {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .numero.reservado {
+            background-color: var(--danger-color);
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        .mensaje {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .exito {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .error {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .resumen {
+            margin-top: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .resumen h2 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .numeros-seleccionados {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .numero-seleccionado {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .numero-seleccionado button {
+            background-color: transparent;
+            color: white;
+            border: none;
+            padding: 0;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .talonario {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .talonario {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Talonario de Rifa</h1>
+            <p class="description">Selecciona tu número de la suerte del 00 al 99</p>
+        </header>
+
+        <div class="talonario-container">
+            <div class="form-container">
+                <h2>Selecciona tu número</h2>
+                <p>Haz clic en un número disponible y completa tus datos para reservarlo.</p>
+                
+                <div class="talonario" id="talonario">
+                    <!-- Los números se generarán dinámicamente con JavaScript -->
+                </div>
+
+                <div id="formulario" style="display: none;">
+                    <h3>Completa tus datos</h3>
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" placeholder="Ingresa tu nombre completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Número de teléfono:</label>
+                        <input type="tel" id="telefono" placeholder="Ingresa tu número de teléfono" required>
+                    </div>
+                    <button id="btnReservar">Reservar número</button>
+                    <button id="btnCancelar" type="button">Cancelar</button>
+                </div>
+
+                <div id="mensaje" class="mensaje" style="display: none;"></div>
+            </div>
+
+            <div class="resumen">
+                <h2>Mis números reservados</h2>
+                <div id="numerosReservados" class="numeros-seleccionados">
+                    <!-- Aquí se mostrarán los números reservados por el usuario -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- ...existing code... -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Variables globales
+        let numerosSeleccionados = [];
+        const talonario = document.getElementById('talonario');
+        const formulario = document.getElementById('formulario');
+        const mensaje = document.getElementById('mensaje');
+        const numerosReservados = document.getElementById('numerosReservados');
+        const btnReservar = document.getElementById('btnReservar');
+        const btnCancelar = document.getElementById('btnCancelar');
+        const inputNombre = document.getElementById('nombre');
+        const inputTelefono = document.getElementById('telefono');
+        
+        // Cargar datos guardados
+        let reservas = JSON.parse(localStorage.getItem('reservasRifa')) || {};
+        
+        // Generar números del talonario (00-99)
+        function generarTalonario() {
+            talonario.innerHTML = '';
+            for (let i = 0; i < 100; i++) {
+                const numero = i.toString().padStart(2, '0');
+                const div = document.createElement('div');
+                div.className = 'numero';
+                div.textContent = numero;
+                div.dataset.numero = numero;
+                
+                // Verificar si el número ya está reservado
+                if (reservas[numero]) {
+                    div.classList.add('reservado');
+                    div.title = `Reservado por: ${reservas[numero].nombre}`;
+                } else {
+                    div.addEventListener('click', seleccionarNumero);
+                    if (numerosSeleccionados.includes(numero)) {
+                        div.classList.add('seleccionado');
+                    }
+                }
+                
+                talonario.appendChild(div);
+            }
+        }
+        
+        // Función para seleccionar/deseleccionar un número
+        function seleccionarNumero(e) {
+            const numero = e.target.dataset.numero;
+            if (numerosSeleccionados.includes(numero)) {
+                // Deseleccionar
+                numerosSeleccionados = numerosSeleccionados.filter(n => n !== numero);
+                e.target.classList.remove('seleccionado');
+            } else {
+                // Seleccionar
+                numerosSeleccionados.push(numero);
+                e.target.classList.add('seleccionado');
+            }
+            // Mostrar formulario si hay al menos uno seleccionado
+            formulario.style.display = numerosSeleccionados.length > 0 ? 'block' : 'none';
+            mensaje.style.display = 'none';
+            // Limpiar campos del formulario
+            if (numerosSeleccionados.length > 0) {
+                inputNombre.value = '';
+                inputTelefono.value = '';
+            }
+        }
+        
+        // Función para reservar los números seleccionados
+        btnReservar.addEventListener('click', function() {
+            const nombre = inputNombre.value.trim();
+            const telefono = inputTelefono.value.trim();
+            
+            if (numerosSeleccionados.length === 0) {
+                mostrarMensaje('Por favor, selecciona al menos un número.', 'error');
+                return;
+            }
+            
+            if (!nombre || !telefono) {
+                mostrarMensaje('Por favor, completa todos los campos.', 'error');
+                return;
+            }
+            
+            // Guardar reservas
+            let reservados = [];
+            for (const numero of numerosSeleccionados) {
+                if (!reservas[numero]) {
+                    reservas[numero] = {
+                        nombre: nombre,
+                        telefono: telefono,
+                        fecha: new Date().toLocaleString()
+                    };
+                    reservados.push(numero);
+                }
+            }
+            
+            // Guardar en localStorage
+            localStorage.setItem('reservasRifa', JSON.stringify(reservas));
+            
+            // Actualizar UI
+            if (reservados.length > 0) {
+                mostrarMensaje(`¡Números ${reservados.join(', ')} reservados con éxito!`, 'exito');
+            } else {
+                mostrarMensaje('Los números seleccionados ya están reservados.', 'error');
+            }
+            formulario.style.display = 'none';
+            actualizarNumerosReservados();
+            numerosSeleccionados = [];
+            generarTalonario(); // Regenerar talonario para actualizar estados
+        });
+        
+        // Función para cancelar la selección
+        btnCancelar.addEventListener('click', function() {
+            numerosSeleccionados = [];
+            generarTalonario();
+            formulario.style.display = 'none';
+        });
+        
+        // Función para mostrar mensaje
+        function mostrarMensaje(texto, tipo) {
+            mensaje.textContent = texto;
+            mensaje.className = `mensaje ${tipo}`;
+            mensaje.style.display = 'block';
+            setTimeout(() => {
+                mensaje.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Función para actualizar la lista de números reservados por el usuario
+        function actualizarNumerosReservados() {
+            numerosReservados.innerHTML = '';
+            const hayReservas = Object.keys(reservas).length > 0;
+            if (!hayReservas) {
+                const mensaje = document.createElement('p');
+                mensaje.textContent = 'Aún no has reservado ningún número.';
+                numerosReservados.appendChild(mensaje);
+                return;
+            }
+            for (const numero in reservas) {
+                const reserva = reservas[numero];
+                const div = document.createElement('div');
+                div.className = 'numero-seleccionado';
+                div.innerHTML = `
+                    <span>Número ${numero}</span>
+                    <span>${reserva.nombre}</span>
+                    <span>${reserva.telefono}</span>
+                    <button class="eliminar" data-numero="${numero}">×</button>
+                `;
+                numerosReservados.appendChild(div);
+            }
+            document.querySelectorAll('.eliminar').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const numero = this.dataset.numero;
+                    eliminarReserva(numero);
+                });
+            });
+        }
+        
+        // Función para eliminar una reserva
+        function eliminarReserva(numero) {
+            if (confirm(`¿Estás seguro de que deseas eliminar la reserva del número ${numero}?`)) {
+                delete reservas[numero];
+                localStorage.setItem('reservasRifa', JSON.stringify(reservas));
+                actualizarNumerosReservados();
+                generarTalonario();
+                mostrarMensaje(`Reserva del número ${numero} eliminada.`, 'exito');
+            }
+        }
+        
+        // Inicializar la aplicación
+        generarTalonario();
+        actualizarNumerosReservados();
+    });
+</script>
+</body>
+</html>
